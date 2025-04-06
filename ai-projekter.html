@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Projekter | Hans-Peter Bonnichsen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-projekter.css">
+</head>
+<body>
+    <div id="main-content">
+        <!-- Header med titler -->
+        <header class="retro-header">
+            <div class="container">
+                <h1 class="typewriter-text">AI-PROJEKTER</h1>
+                <h2 class="subtitle fade-in fade-delay-1">Her kan du se og afprøve forskellige prompts, som i en LLM starter forskellige lærings- og træningsscenarier</h2>
+            </div>
+        </header>
+
+        <!-- Prompt Database -->
+        <section class="prompt-database">
+            <div class="container">
+                <div class="files-grid">
+                    <!-- Prompt Fil 1 -->
+                    <div class="file-item" data-prompt-id="prompt1">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">Intro til AI-teknologi</div>
+                    </div>
+                    
+                    <!-- Prompt Fil 2 -->
+                    <div class="file-item" data-prompt-id="prompt2">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">Kunstværkerne taler</div>
+                    </div>
+                    
+                    <!-- Prompt Fil 3 -->
+                    <div class="file-item" data-prompt-id="prompt3">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">Zombie Lab Escape: Overlev med viden</div>
+                    </div>
+                    
+                    <!-- Prompt Fil 4 -->
+                    <div class="file-item" data-prompt-id="prompt4">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">BorgerDialog: Virtuel træningssimulator</div>
+                    </div>
+                    
+                    <!-- Prompt Fil 5 -->
+                    <div class="file-item" data-prompt-id="prompt5">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">AI-Act Navigator: Din guide til EU's AI-regulering</div>
+                    </div>
+                    
+                    <!-- Prompt Fil 6 -->
+                    <div class="file-item" data-prompt-id="prompt6">
+                        <div class="file-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-label">Etisk AI Workshop Facilitator</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation knapper -->
+        <div class="navigation-buttons">
+            <a href="kontakt.html" class="btn btn-primary">
+                <i class="fas fa-arrow-right"></i> Fortsæt
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+    
+                <div class="footer-bottom">
+                    <p>&copy; 2025 HANS-PETER.SYS // ALL RIGHTS RESERVED</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for at vise prompts -->
+    <div id="prompt-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Prompt Titel</h3>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description">Beskrivelse af prompten vil vises her.</p>
+                <div class="prompt-box">
+                    <h4>Prompt:</h4>
+                    <pre id="modal-prompt">Prompt tekst vil vises her.</pre>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="copy-button" class="btn btn-secondary">Kopier Prompt</button>
+                <button id="close-button" class="btn btn-primary">Luk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="javascript/ai-projekter.js"></script>
+
+</body>
+</html>

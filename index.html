@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hans-Peter Bonnichsen | Digital Educator & Visual Storyteller</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Amiga Boot Animation -->
+    <div id="boot-animation">
+        <div class="boot-screen kickstart">
+            <div class="kickstart-content">
+                <div class="diskette-icon">
+                    <div class="diskette-body"></div>
+                    <div class="diskette-slider"></div>
+                    <div class="diskette-label"></div>
+                </div>
+                <div class="kickstart-text">
+                    <p>HANS-PETER BONNICHSEN OS</p>
+                    <p>Version 3.8</p>
+                    <p class="disk-text">Insert Disk</p>
+                </div>
+            </div>
+        </div>
+        <div class="boot-screen workbench" style="display: none;">
+            <div class="workbench-content">
+                <div class="boot-messages">
+                    <p>Loading system components...</p>
+                    <p class="typing">Checking Media Skills: OK</p>
+                    <p class="typing">Checking Teaching Experience: OK</p>
+                    <p class="typing">Loading Visual Storytelling Modules: OK</p>
+                    <p class="typing">Initializing Portfolio Interface: OK</p>
+                    <p class="typing">System ready. Welcome to HANS-PETER OS v1.0</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Start Screen med Main Menu -->
+    <div id="game-start-screen" style="display: none;">
+        <div class="start-screen-container">
+            <h1 class="game-title">PROMPT ODYSSEYEN</h1>
+            <h2 class="game-subtitle">En rejse gennem kreativ formidling</h2>
+            
+            <div class="character-stage">
+                <!-- Her vil portfolie-karakteren løbe -->
+                <div id="start-character-container"></div>
+            </div>
+            
+            <!-- Main Menu med flere valgmuligheder -->
+            <div class="main-menu fade-in fade-delay-1">
+                <button id="start-game-button" class="menu-btn menu-btn-green">
+                    <i class="fas fa-gamepad"></i> START SPILLET
+                </button>
+                
+                <button id="video-button" class="menu-btn menu-btn-blue">
+                    <i class="fas fa-video"></i> GÅ TIL VIDEOPRÆSENTATION
+                </button>
+                
+                <button id="ai-projects-button" class="menu-btn menu-btn-magenta">
+                    <i class="fas fa-robot"></i> AI-PROJEKTER
+                </button>
+                
+                <button id="contact-button" class="menu-btn menu-btn-orange">
+                    <i class="fas fa-envelope"></i> PÅ GENSYN
+                </button>
+                
+                <button id="quit-button" class="menu-btn menu-btn-red">
+                    <i class="fas fa-power-off"></i> QUIT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="javascript/world.js"></script>
+    <script src="javascript/character.js"></script>
+    <script src="javascript/dialog.js"></script>
+    <script src="javascript/audio.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/start-screen-character.js"></script>
+    <script src="javascript/auto-game.js"></script>
+    <script src="javascript/portfolie-character.js"></script>
+    <script src="javascript/video-handler.js"></script>
+
+</body>
+</html>

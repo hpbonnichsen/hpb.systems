@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afslut besøg | Hans-Peter Bonnichsen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kontakt.css">
+    <style>
+        /* Håndtryk-ikon animation */
+        .handshake-icon {
+            font-size: 60px;
+            color: var(--terminal-green);
+            margin-bottom: 25px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Centrering af indhold */
+        #thank-you-message {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <!-- Header med titler -->
+        <header class="retro-header">
+            <div class="container">
+                <h1 class="typewriter-text-2">TAK FOR DIT BESØG</h1>
+                <h2 class="subtitle fade-in fade-delay-1">Det har været en fornøjelse at dele min rejse med dig</h2>
+            </div>
+        </header>
+
+        <!-- Afslutnings Content -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Afslutningsbesked -->
+                    <div class="contact-form" style="grid-column: 1 / span 2;">
+                        <div id="thank-you-message">
+                            <div class="handshake-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 style="font-size: 20px; margin-bottom: 20px; color: var(--highlight);">JEG HÅBER VI SES TIL SAMTALE</h3>
+                            
+                            <p style="margin-bottom: 15px; text-align: center; font-size: 20px; line-height: 1.6;">
+                                Tak for at du tog dig tid til at udforske min profil. Jeg ser frem til muligheden for at uddybe mine kvalifikationer og diskutere, hvordan min erfaring kan bidrage til jeres team.
+                            </p>
+                            
+                            
+                            <div style="border-top: 1px solid var(--terminal-green); padding-top: 20px; margin-top: 20px; width: 100%;">
+                                <p style="font-style: italic; color: var(--terminal-blue); text-align: center;">
+                                    "Kreativitet er intelligens, der leger" - Albert Einstein
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation knapper -->
+        <div class="navigation-buttons">
+            <a href="ai-projekter.html" class="btn btn-secondary" id="back-to-ai-button">
+                <i class="fas fa-robot"></i> Tilbage til AI-Projekter
+            </a>
+            <a href="#" class="btn btn-primary" id="finish-button">
+                <i class="fas fa-sign-out-alt"></i> Afslut besøg
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="center-copyright">
+                        <p>&copy; 2025 HANS-PETER.SYS // ALL RIGHTS RESERVED</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Dialog Box Modal for Afslutning -->
+    <div id="dialog-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>FARVEL OG PÅ GENSYN!</h3>
+            </div>
+            <div class="modal-body">
+                <div class="thanks-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p>Jeg håber at høre fra dig og ser frem til en spændende dialog om fremtidige muligheder.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="dialog-close-button" class="btn btn-primary">GOD DAG</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Referencer til DOM-elementer
+            const finishButton = document.getElementById('finish-button');
+            const dialogModal = document.getElementById('dialog-modal');
+            const dialogCloseButton = document.getElementById('dialog-close-button');
+
+            // Håndtér Afslut besøg knap
+            if (finishButton) {
+                finishButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    // Vis afslutningsdialog
+                    showDialog();
+                });
+            }
+
+            // Vis dialog-funktion
+            function showDialog() {
+                if (dialogModal) {
+                    dialogModal.style.display = 'block';
+                    
+                    // Tilføj kort forsinkelse før animationen for at sikre, at display ændringen er effektueret
+                    setTimeout(() => {
+                        dialogModal.style.opacity = '1';
+                    }, 10);
+                }
+            }
+
+            // Luk dialog-funktion
+            function closeDialog() {
+                if (dialogModal) {
+                    dialogModal.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        dialogModal.style.display = 'none';
+                        
+                        // Redirect til hovedsiden (eller anden ønsket side) efter lukke-animationen
+                        window.location.href = 'index.html';
+                    }, 300);
+                }
+            }
+
+            // Tilføj event listener til luk-knappen i dialogen
+            if (dialogCloseButton) {
+                dialogCloseButton.addEventListener('click', closeDialog);
+            }
+
+            // Luk dialog ved at klikke uden for modal-content
+            window.addEventListener('click', function(event) {
+                if (event.target === dialogModal) {
+                    closeDialog();
+                }
+            });
+
+            // Luk dialog ved tryk på Escape
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && dialogModal.style.display === 'block') {
+                    closeDialog();
+                }
+            });
+
+            // Typewriter effekt på overskriften
+            const typewriter = document.querySelector('.typewriter-text');
+            if (typewriter) {
+                // Animation håndteres primært via CSS, men vi kan tilføje en sikkerhed for ældre browsere
+                typewriter.style.width = '0';
+                setTimeout(() => {
+                    typewriter.style.width = '100%';
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

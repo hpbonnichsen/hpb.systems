@@ -29,7 +29,7 @@ function createCharacter(container, options = {}) {
     character.style.bottom = `${settings.startY}px`;
     character.style.left = `${settings.startX}px`;
     character.style.zIndex = settings.zIndex;
-    character.style.transition = 'left 0.1s linear';
+    character.style.transition = 'left 0.1s linear, transform 0.2s ease'; // Tilføjet transform transition
     
     // Opbyg karakter-dele
     const parts = {
@@ -54,21 +54,21 @@ function createCharacter(container, options = {}) {
     parts.body.style.top = '0';
     character.appendChild(parts.body);
     
-    // Øje
+    // Øje - justeret position for bedre vending
     parts.eye.style.width = '4px';
     parts.eye.style.height = '4px';
     parts.eye.style.backgroundColor = settings.eyeColor;
     parts.eye.style.position = 'absolute';
-    parts.eye.style.left = '18px';
+    parts.eye.style.left = '18px'; // Dette vil blive justeret dynamisk
     parts.eye.style.top = '8px';
     character.appendChild(parts.eye);
     
-    // Arm
+    // Arm - justeret position for bedre vending
     parts.arm.style.width = '8px';
     parts.arm.style.height = '8px';
     parts.arm.style.backgroundColor = settings.color;
     parts.arm.style.position = 'absolute';
-    parts.arm.style.left = '24px';
+    parts.arm.style.left = '24px'; // Dette vil blive justeret dynamisk
     parts.arm.style.top = '10px';
     character.appendChild(parts.arm);
     
@@ -122,11 +122,26 @@ function createCharacter(container, options = {}) {
     // Animationsstatus
     let isRunning = false;
     let currentPosition = settings.startX;
+    let facingDirection = 'right'; // Holder styr på hvilken retning karakteren vender
+    
+    // Hjælpefunktion til at opdatere karakter-dele baseret på retning
+    function updateCharacterOrientation() {
+        if (facingDirection === 'right') {
+            // Normal (højre) orientering
+            parts.eye.style.left = '18px';
+            parts.arm.style.left = '24px';
+            character.style.transform = 'scaleX(1)';
+        } else {
+            // Venstre orientering - spejlvend hele karakteren
+            character.style.transform = 'scaleX(-1)';
+        }
+    }
     
     // Metoder til at kontrollere karakteren
     const characterController = {
         element: character,
         parts: parts,
+        facingDirection: facingDirection,
         
         /**
          * Start løbe-animation
@@ -166,6 +181,26 @@ function createCharacter(container, options = {}) {
         },
         
         /**
+         * Sæt karakterens retning og opdater udseende
+         * @param {string} direction - 'left' eller 'right'
+         */
+        setDirection: function(direction) {
+            if (direction !== facingDirection) {
+                facingDirection = direction;
+                this.facingDirection = direction;
+                updateCharacterOrientation();
+            }
+        },
+        
+        /**
+         * Få karakterens nuværende retning
+         * @returns {string} - 'left' eller 'right'
+         */
+        getDirection: function() {
+            return facingDirection;
+        },
+        
+        /**
          * Få karakter-element
          * @returns {HTMLElement} - Karakter DOM element
          */
@@ -184,7 +219,8 @@ function createCharacter(container, options = {}) {
                 this.stopRunning();
             }
             
-            // Tilføj hop-animation
+            // Gem nuværende transform og tilføj hop-animation
+            const currentTransform = character.style.transform || 'scaleX(1)';
             character.style.animation = 'jump 0.8s ease-out';
             
             // Tilføj animation til benene for et mere naturligt hop
@@ -223,6 +259,8 @@ function createCharacter(container, options = {}) {
                 parts.leg2.style.top = '32px';
                 
                 character.style.animation = 'none';
+                // Gendan retnings-transform
+                character.style.transform = currentTransform;
                 
                 // Genstart løbe-animation hvis den var i gang før
                 if (wasRunning) {
@@ -266,6 +304,9 @@ function createCharacter(container, options = {}) {
             doBlink();
         }
     };
+    
+    // Sæt initial retning
+    updateCharacterOrientation();
     
     return characterController;
 }

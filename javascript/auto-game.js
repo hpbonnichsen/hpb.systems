@@ -117,32 +117,32 @@ function showSimpleGame() {
     const competenceData = [
         {
             position: 400,
-            title: "10 ÅRS UNDERVISNINGSERFARING",
-            description: "Specialiseret i at gøre komplekst stof forståeligt for forskellige målgrupper.",
+            title: "10 ÅRS PÆDAGOGISK FRONTLINJE-ERFARING",
+            description: "Solidt didaktisk fundament fra 10 års undervisning i gymnasiet, med speciale i at differentiere undervisning og skabe motivation for en mangfoldig gruppe af unge voksne.",
             requireJump: false
         },
         {
             position: 1200,
-            title: "VISUEL HISTORIEFORTÆLLING",
-            description: "Formidler tekniske koncepter gennem engagerende visuelle fortællinger og formater.",
+            title: "PRAKSISNÆR AI-FORMIDLING",
+            description: "Transformerende teknisk AI-viden til engagerende og letforståelige læringsoplevelser gennem visuel og interaktiv formidling.",
             requireJump: true // Dette punkt kræver et hop!
         },
         {
             position: 2000,
-            title: "E-LEARNING EKSPERTISE",
-            description: "Udviklet visuel identitet og læringskoncepter for Roskilde Festivals e-learning platform.",
+            title: "INNOVATIVT LÆRINGSDESIGN",
+            description: "Erfaring med at udvikle nye, digitale læringsformater – fra koncept til implementering – med fokus på gamification og brugerengagement.",
             requireJump: false
         },
         {
             position: 2800,
-            title: "MULTIMEDIEKOMPETENCER",
-            description: "Professionel erfaring med videoproduktion, grafisk design og digital formidling.",
+            title: "PROCES- & PROJEKTFACILITERING",
+            description: "Vant til at drive kreative udviklingsprocesser fra idé til færdigt produkt og samarbejde på tværs af fagligheder for at nå et fælles mål.",
             requireJump: true // Dette punkt kræver også et hop!
         },
         {
             position: 3600,
-            title: "STRUKTURERET KURSUSUDVIKLING",
-            description: "Erfaring med at opbygge og gennemføre kurser fra idé til færdigt produkt.",
+            title: "KOMPETENCEUDVIKLING FOR UNDERVISERE",
+            description: "Designer og faciliterer skræddersyede workshops og forløb, der klæder kolleger på til at anvende ny teknologi pædagogisk meningsfuldt.",
             requireJump: false
         }
     ];
@@ -600,6 +600,7 @@ function showVideoSection() {
             
             // Håndtér brugerinput
             let isMoving = false;
+            let newDirection = animationState.facingDirection; // Gem nuværende retning
             
             // Venstre/højre bevægelse
             if (inputState.left) {
@@ -608,24 +609,20 @@ function showVideoSection() {
                 if (newPos > 50) {
                     character.setX(newPos);
                     isMoving = true;
-                    
-                    // Opdater retning hvis nødvendigt
-                    if (animationState.facingDirection !== 'left') {
-                        // Her ville vi vende karakteren, men dette kræver ekstra implementering
-                        animationState.facingDirection = 'left';
-                    }
+                    newDirection = 'left';
                 }
             }
             
             if (inputState.right) {
                 character.setX(character.getX() + animationState.movementSpeed);
                 isMoving = true;
-                
-                // Opdater retning hvis nødvendigt
-                if (animationState.facingDirection !== 'right') {
-                    // Her ville vi vende karakteren, men dette kræver ekstra implementering
-                    animationState.facingDirection = 'right';
-                }
+                newDirection = 'right';
+            }
+            
+            // Opdater karakterens retning hvis den har ændret sig
+            if (newDirection !== animationState.facingDirection) {
+                animationState.facingDirection = newDirection;
+                character.setDirection(newDirection);
             }
             
             // Start/stop løbe-animation baseret på bevægelse

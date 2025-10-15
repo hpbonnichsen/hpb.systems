@@ -113,36 +113,36 @@ function showSimpleGame() {
     
     const gameWorld = world.element;
     
-    // Definér kompetencer til at vise i bobler
+// Definér kompetencer til at vise i bobler
     const competenceData = [
         {
             position: 400,
-            title: "10 ÅRS PÆDAGOGISK FRONTLINJE-ERFARING",
-            description: "Solidt didaktisk fundament fra 10 års undervisning i gymnasiet, med speciale i at differentiere undervisning og skabe motivation for en mangfoldig gruppe af unge voksne.",
+            title: "BROBYGGER: TEKNOLOGI TIL MENNESKER",
+            description: "10+ års erfaring med at omsætte kompleks AI-teknologi til konkrete løsninger i praksis. Specialiseret i at skabe tryghed og adoption gennem målrettede workshops og hands-on træning.",
             requireJump: false
         },
         {
             position: 1200,
-            title: "PRAKSISNÆR AI-FORMIDLING",
-            description: "Transformerende teknisk AI-viden til engagerende og letforståelige læringsoplevelser gennem visuel og interaktiv formidling.",
+            title: "AUDIOVISUEL HISTORIEFORTÆLLER",
+            description: "Formidler gennem video, design og interaktive medier. Har skabt elevdrevet tv-kanal, e-learning platforme og videokurser der engagerer og inspirerer brugere til handling.",
             requireJump: true // Dette punkt kræver et hop!
         },
         {
             position: 2000,
-            title: "INNOVATIVT LÆRINGSDESIGN",
-            description: "Erfaring med at udvikle nye, digitale læringsformater – fra koncept til implementering – med fokus på gamification og brugerengagement.",
+            title: "DATADREVET EFFEKTMÅLING",
+            description: "Systematisk feedback-loop approach: Indsamler brugerdata, analyserer mønstre og omsætter indsigter til konkrete forbedringer. Dokumenteret 35% effektstigning i læringsudbytte.",
             requireJump: false
         },
         {
             position: 2800,
-            title: "PROCES- & PROJEKTFACILITERING",
-            description: "Vant til at drive kreative udviklingsprocesser fra idé til færdigt produkt og samarbejde på tværs af fagligheder for at nå et fælles mål.",
+            title: "TVÆRGÅENDE SAMARBEJDE & KOORDINERING",
+            description: "Erfaring med at drive implementeringsprojekter på tværs af organisationer. Fra AI-udvalg i gymnasiet til koordinering af e-learning platform for 30.000 frivillige på Roskilde Festival.",
             requireJump: true // Dette punkt kræver også et hop!
         },
         {
             position: 3600,
-            title: "KOMPETENCEUDVIKLING FOR UNDERVISERE",
-            description: "Designer og faciliterer skræddersyede workshops og forløb, der klæder kolleger på til at anvende ny teknologi pædagogisk meningsfuldt.",
+            title: "LÆRINGSDESIGN: WORKSHOPS & E-LEARNING",
+            description: "Designer skræddersyede kompetenceforløb fra 30-minutters quick-intros til dybdegående kursusforløb. Custom GPT'er, AI-escape rooms og praktisk promptengineering-træning.",
             requireJump: false
         }
     ];
